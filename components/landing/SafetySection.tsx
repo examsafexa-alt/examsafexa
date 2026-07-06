@@ -39,7 +39,7 @@ export function SafetySection() {
           </h2>
           <p className="mt-4 text-navy-700/70">
             Every feature below is opt-in. We built this layer with women
-            traveling to unfamiliar exam centers in mind, but it's here for
+            traveling to unfamiliar exam centers in mind, but it&apos;s here for
             any student who wants the extra reassurance.
           </p>
         </div>

@@ -21,21 +21,35 @@ export default function SelectCenterPage() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function load() {
-      const response = await fetch("/api/users/me");
-      const payload: UserPayload = await response.json();
-      if (!payload.examSelected) {
-        router.replace("/onboarding/select-exam");
-        return;
-      }
+      try {
+        const response = await fetch("/api/users/me");
+        if (response.status === 401) {
+          router.replace("/login");
+          return;
+        }
+        if (!response.ok) throw new Error("Could not load your profile.");
 
-      setExamId(payload.examSelected);
-      const centersResponse = await fetch(`/api/exam-centers?examId=${payload.examSelected}`);
-      const centersPayload = await centersResponse.json();
-      setCenters(centersPayload.centers ?? []);
-      setLoading(false);
+        const payload: UserPayload = await response.json();
+        if (!payload.examSelected) {
+          router.replace("/onboarding/select-exam");
+          return;
+        }
+
+        setExamId(payload.examSelected);
+        const centersResponse = await fetch(`/api/exam-centers?examId=${payload.examSelected}`);
+        if (!centersResponse.ok) throw new Error("Could not load centers.");
+
+        const centersPayload = await centersResponse.json();
+        setCenters(centersPayload.centers ?? []);
+      } catch {
+        setError("Could not load exam centers. Check your MongoDB connection and seed data.");
+      } finally {
+        setLoading(false);
+      }
     }
 
     load();
@@ -61,7 +75,12 @@ export default function SelectCenterPage() {
     });
 
     setSaving(false);
-    if (response.ok) router.push("/dashboard");
+    if (response.ok) {
+      router.push("/dashboard");
+      return;
+    }
+
+    setError("Could not save your center selection. Please try again.");
   }
 
   return (
@@ -70,7 +89,9 @@ export default function SelectCenterPage() {
       title="Choose your exam center"
       subtitle="Search the center list or select a pin on the map. Your community will use this later."
     >
-      {loading ? (
+      {error ? (
+        <Card className="p-8 text-sm font-semibold text-rose-600">{error}</Card>
+      ) : loading ? (
         <Card className="p-8 text-navy-700/70">Loading centers...</Card>
       ) : centers.length ? (
         <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">

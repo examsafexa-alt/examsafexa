@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 import { z } from "zod";
 import { connectToDatabase } from "@/lib/db";
 import ExamCenter from "@/models/ExamCenter";
@@ -6,7 +7,9 @@ import ExamCenter from "@/models/ExamCenter";
 export const dynamic = "force-dynamic";
 
 const querySchema = z.object({
-  examId: z.string().min(1),
+  examId: z.string().refine((value) => mongoose.Types.ObjectId.isValid(value), {
+    message: "examId must be a valid id.",
+  }),
 });
 
 export async function GET(request: Request) {

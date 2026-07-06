@@ -52,6 +52,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Please check the form fields and try again." }, { status: 400 });
     }
 
+    if (error instanceof Error && error.message.includes("MONGODB_URI is not set")) {
+      return NextResponse.json(
+        { message: "MongoDB is not configured. Add MONGODB_URI to .env.local and restart the server." },
+        { status: 500 }
+      );
+    }
+
+    console.error("[register:error]", error);
     return NextResponse.json({ message: "Could not create your account right now." }, { status: 500 });
   }
 }

@@ -15,7 +15,7 @@ export function CommunityHighlight() {
             Your Exam Community
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold text-navy-900 sm:text-4xl">
-            You're not the only one going to that center
+            You&apos;re not the only one going to that center
           </h2>
           <p className="mt-4 max-w-lg text-navy-700/70">
             The moment you select your exam and center, ExamSafexa auto-matches

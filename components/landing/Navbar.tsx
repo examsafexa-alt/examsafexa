@@ -37,7 +37,11 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
           {/* Logo / wordmark */}
           <Link href="#home" className="flex items-center gap-2" aria-label="ExamSafexa home">
-            <LogoMark />
+            <img
+              src="/brand/examsafexa-logo.jpeg"
+              alt=""
+              className="h-11 w-11 rounded-full border border-navy-900/10 bg-white object-cover object-top shadow-sm"
+            />
             <span className="font-display text-xl font-semibold tracking-tight">
               <span className="text-navy-900">Exam</span>
               <span className="text-gradient">Safexa</span>
@@ -108,33 +112,5 @@ export function Navbar() {
         )}
       </div>
     </header>
-  );
-}
-
-/** Simplified emblem mark echoing the cap + road + pin logo, in CSS/SVG (no external image dependency). */
-function LogoMark() {
-  return (
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="navLogoGradient" x1="0" y1="0" x2="34" y2="34">
-          <stop offset="0%" stopColor="#2FBF71" />
-          <stop offset="100%" stopColor="#0FA3A3" />
-        </linearGradient>
-      </defs>
-      <circle cx="17" cy="17" r="16" fill="#0F2A5E" />
-      <circle cx="17" cy="17" r="16" stroke="url(#navLogoGradient)" strokeWidth="1.5" />
-      <path
-        d="M17 9.5 L25 13 L17 16.5 L9 13 Z"
-        fill="url(#navLogoGradient)"
-      />
-      <path
-        d="M8 21c2.2-2.6 5.6-4 9-4s6.8 1.4 9 4"
-        stroke="white"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <circle cx="17" cy="24.5" r="1.6" fill="white" />
-    </svg>
   );
 }

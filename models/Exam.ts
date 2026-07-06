@@ -1,4 +1,3 @@
-// Scaffolded per brief Section 6 — not imported/wired up in Phase 1.
 import { Schema, models, model } from "mongoose";
 
 const ExamSchema = new Schema({

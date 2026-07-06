@@ -22,11 +22,16 @@ export default function SelectExamPage() {
   const [selectedExamId, setSelectedExamId] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("/api/exams")
-      .then((response) => response.json())
+      .then(async (response) => {
+        if (!response.ok) throw new Error("Could not load exams.");
+        return response.json();
+      })
       .then((payload) => setExams(payload.exams ?? []))
+      .catch(() => setError("Could not load exams. Check your MongoDB connection and seed data."))
       .finally(() => setLoading(false));
   }, []);
 
@@ -40,7 +45,12 @@ export default function SelectExamPage() {
     });
 
     setSaving(false);
-    if (response.ok) router.push("/onboarding/select-center");
+    if (response.ok) {
+      router.push("/onboarding/select-center");
+      return;
+    }
+
+    setError("Could not save your exam selection. Please try again.");
   }
 
   return (
@@ -49,7 +59,9 @@ export default function SelectExamPage() {
       title="Choose your exam"
       subtitle="Pick the exam you are preparing for. This selection decides which centers appear next."
     >
-      {loading ? (
+      {error ? (
+        <Card className="p-8 text-sm font-semibold text-rose-600">{error}</Card>
+      ) : loading ? (
         <Card className="p-8 text-navy-700/70">Loading exams...</Card>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

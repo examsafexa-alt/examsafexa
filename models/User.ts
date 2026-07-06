@@ -1,4 +1,3 @@
-// Scaffolded per brief Section 6 — not imported/wired up in Phase 1.
 import mongoose, { Schema, models, model } from "mongoose";
 
 const UserSchema = new Schema(
@@ -16,6 +15,9 @@ const UserSchema = new Schema(
     // Optional — only collected if the student opts into the safety layer
     parentEmail: { type: String, lowercase: true, trim: true },
     liveLocationOptIn: { type: Boolean, default: false },
+    notificationPrefs: {
+      parentEmailOnJourney: { type: Boolean, default: true },
+    },
   },
   { timestamps: { createdAt: "createdAt", updatedAt: false } }
 );

@@ -57,7 +57,7 @@ export function Testimonials() {
             className="rounded-2xl border border-navy-900/5 bg-white p-6 shadow-card"
           >
             <blockquote className="font-display text-base italic leading-relaxed text-navy-900">
-              "{t.quote}"
+              &ldquo;{t.quote}&rdquo;
             </blockquote>
             <figcaption className="mt-4 text-sm">
               <span className="font-semibold text-navy-900">{t.name}</span>

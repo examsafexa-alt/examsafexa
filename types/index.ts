@@ -1,7 +1,3 @@
-// Shared types scaffolded per the Phase-1 brief (Section 6).
-// Not wired to any backend yet — Phase 2 will connect these to
-// the Mongoose models in /models and real API routes.
-
 export interface User {
   name: string;
   email: string;
@@ -12,6 +8,9 @@ export interface User {
   examCenterSelected?: string; // ExamCenter["_id"]
   parentEmail?: string; // optional — powers the women's-safety notification flow
   liveLocationOptIn: boolean;
+  notificationPrefs?: {
+    parentEmailOnJourney: boolean;
+  };
   createdAt: Date;
 }
 
@@ -36,6 +35,7 @@ export interface Community {
   examId: string;
   examCenterId: string;
   memberIds: string[];
+  scope: "center";
   createdAt: Date;
 }
 
@@ -44,6 +44,9 @@ export interface LocationShare {
   userId: string;
   communityId?: string;
   isActive: boolean;
-  lastLocation?: { lat: number; lng: number; updatedAt: Date };
+  shareToken?: string;
+  lastLocation?: { lat: number; lng: number; accuracy?: number; updatedAt: Date };
+  journeyStartedAt?: Date;
+  journeyEndedAt?: Date;
   parentNotifiedAt?: Date;
 }
