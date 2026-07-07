@@ -35,7 +35,7 @@ export function SafetySection() {
             Safety, Especially For Solo Travelers
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold text-navy-900 sm:text-4xl">
-            Stay safe on the way — entirely on your terms
+            Stay safe on the way entirely on your terms
           </h2>
           <p className="mt-4 text-navy-700/70">
             Every feature below is opt-in. We built this layer with women

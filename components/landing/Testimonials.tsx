@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 // Placeholder testimonials — swap for real student quotes post-launch.
 const TESTIMONIALS = [
-  {
-    quote:
-      "I found three other people going to my center and we shared an auto on exam day. Genuinely calmed my nerves.",
-    name: "Ritika P.",
-    detail: "NEET UG aspirant, Prayagraj",
-  },
-  {
-    quote:
-      "Seeing the route a week early meant no last-minute panic about how to get there.",
-    name: "Aman J.",
-    detail: "JEE Main aspirant, Kanpur",
-  },
-  {
-    quote:
-      "My mother could see I'd reached safely without me having to call every ten minutes.",
-    name: "Sneha K.",
-    detail: "UPSC CSE aspirant, Lucknow",
-  },
+  // {
+  //   quote:
+  //     "I found three other people going to my center and we shared an auto on exam day. Genuinely calmed my nerves.",
+  //   name: "Ritika P.",
+  //   detail: "NEET UG aspirant, Prayagraj",
+  // },
+  // {
+  //   quote:
+  //     "Seeing the route a week early meant no last-minute panic about how to get there.",
+  //   name: "Aman J.",
+  //   detail: "JEE Main aspirant, Kanpur",
+  // },
+  // {
+  //   quote:
+  //     "My mother could see I'd reached safely without me having to call every ten minutes.",
+  //   name: "Sneha K.",
+  //   detail: "UPSC CSE aspirant, Lucknow",
+  // },
 ];
 
 // Placeholder generic exam-category labels — not affiliated with any exam board.
