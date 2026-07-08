@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram, Twitter, Linkedin, Mail } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Send } from "lucide-react";
 
 const QUICK_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
@@ -12,6 +12,21 @@ const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/terms" },
   { label: "Safety Guidelines", href: "/safety-guidelines" },
+];
+
+const SOCIAL_LINKS = [
+  { label: "ExamSafexa on X", href: "https://x.com/examsafexa", icon: Twitter },
+  { label: "ExamSafexa on Telegram", href: "https://t.me/ExamSafexa", icon: Send },
+  {
+    label: "ExamSafexa on Instagram",
+    href: "https://www.instagram.com/examsafexa?igsh=MWp4NWhpMDF1Y3Jkag==",
+    icon: Instagram,
+  },
+  {
+    label: "ExamSafexa on LinkedIn",
+    href: "https://www.linkedin.com/company/exam-safexa/",
+    icon: Linkedin,
+  },
 ];
 
 export function Footer() {
@@ -29,11 +44,13 @@ export function Footer() {
               any exam board or government body.
             </p>
             <div className="mt-5 flex gap-3">
-              {[Instagram, Twitter, Linkedin, Mail].map((Icon, i) => (
+              {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
                 <a
-                  key={i}
-                  href="#"
-                  aria-label="Social link"
+                  key={href}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-white/10"
                 >
                   <Icon className="h-4 w-4" />

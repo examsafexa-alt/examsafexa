@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 
+type Testimonial = {
+  quote: string;
+  name: string;
+  detail: string;
+};
+
 // Placeholder testimonials — swap for real student quotes post-launch.
-const TESTIMONIALS = [
+const TESTIMONIALS: Testimonial[] = [
   // {
   //   quote:
   //     "I found three other people going to my center and we shared an auto on exam day. Genuinely calmed my nerves.",
