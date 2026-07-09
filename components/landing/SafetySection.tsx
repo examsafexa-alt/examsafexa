@@ -28,10 +28,13 @@ const FEATURES = [
 
 export function SafetySection() {
   return (
-    <section id="safety" className="bg-rose-50 py-24">
+    <section
+      id="safety"
+      className="bg-[radial-gradient(circle_at_50%_10%,rgba(200,90,131,0.24),transparent_34%),linear-gradient(180deg,#F8DCE7_0%,#F4C9DA_100%)] py-24"
+    >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-rose-600">
+          <p className="text-sm font-semibold uppercase tracking-wide text-[#B33D70]">
             Safety, Especially For Solo Travelers
           </p>
           <h2 className="mt-3 font-display text-3xl font-semibold text-navy-900 sm:text-4xl">
@@ -52,10 +55,10 @@ export function SafetySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="rounded-2xl bg-white p-6 shadow-card"
+              className="rounded-2xl bg-white/95 p-6 shadow-[0_16px_40px_-18px_rgba(179,61,112,0.45)]"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-rose-200/70">
-                <f.icon className="h-5 w-5 text-rose-600" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#ECA7C2]">
+                <f.icon className="h-5 w-5 text-[#A72E64]" />
               </div>
               <h3 className="mt-5 font-display text-base font-semibold text-navy-900">
                 {f.title}
@@ -68,8 +71,8 @@ export function SafetySection() {
         </div>
 
         {/* Reassurance banner — mint/teal notice pattern, per brief Section 3 */}
-        <div className="mx-auto mt-10 flex max-w-3xl items-center gap-4 rounded-2xl bg-teal-500/10 px-6 py-4">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-900">
+        <div className="mx-auto mt-10 flex max-w-3xl items-center gap-4 rounded-2xl bg-white/55 px-6 py-4 shadow-[0_14px_34px_-20px_rgba(179,61,112,0.5)] backdrop-blur">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#A72E64]">
             <ShieldCheck className="h-4 w-4 text-white" />
           </div>
           <p className="text-center text-sm text-navy-700/80 sm:text-left">

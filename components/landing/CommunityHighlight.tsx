@@ -1,10 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, MapPin, MessageSquare } from "lucide-react";
+import { MessageSquare, UserRound } from "lucide-react";
 
-// Placeholder mock data for the illustrative community card — not real users.
-const AVATAR_INITIALS = ["RP", "SK", "AJ", "MV", "TN"];
+const ROUTE_POINTS = [
+  { state: "Delhi", code: "DL", left: "18%", top: "18%", x: 115, y: 85, delay: 0 },
+  { state: "Rajasthan", code: "RJ", left: "15%", top: "60%", x: 96, y: 270, delay: 0.7 },
+  { state: "Bihar", code: "BR", left: "80%", top: "24%", x: 512, y: 108, delay: 1.4 },
+  { state: "Madhya Pradesh", code: "MP", left: "24%", top: "74%", x: 154, y: 340, delay: 2.1 },
+  { state: "West Bengal", code: "WB", left: "83%", top: "70%", x: 531, y: 315, delay: 2.8 },
+  { state: "Maharashtra", code: "MH", left: "48%", top: "78%", x: 307, y: 360, delay: 3.5 },
+];
+
+const CENTER_POINT = { x: 320, y: 220, left: "50%", top: "50%" };
 
 export function CommunityHighlight() {
   return (
@@ -38,51 +46,110 @@ export function CommunityHighlight() {
           </ul>
         </div>
 
-        {/* Mock community card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto w-full max-w-sm rounded-3xl border border-navy-900/5 bg-white p-6 shadow-soft"
-        >
-          <div className="flex items-center justify-between">
-            <span className="rounded-full bg-teal-500/10 px-3 py-1 text-xs font-semibold text-teal-600">
-              NEET UG 2026
-            </span>
-            <Users className="h-4 w-4 text-navy-900/40" />
-          </div>
-
-          <h3 className="mt-4 font-display text-lg font-semibold text-navy-900">
-            Govt. Model School, Civil Lines
-          </h3>
-          <p className="mt-1 flex items-center gap-1 text-xs text-navy-700/60">
-            <MapPin className="h-3.5 w-3.5" />
-            Prayagraj, Uttar Pradesh
-          </p>
-
-          <div className="mt-5 flex items-center">
-            <div className="flex -space-x-3">
-              {AVATAR_INITIALS.map((initials, i) => (
-                <div
-                  key={initials}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-navy-900 text-[11px] font-semibold text-white"
-                  style={{ zIndex: AVATAR_INITIALS.length - i }}
-                >
-                  {initials}
-                </div>
-              ))}
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-brand-gradient text-[11px] font-semibold text-white">
-                +38
-              </div>
-            </div>
-          </div>
-          <p className="mt-3 text-sm text-navy-700/70">
-            <span className="font-semibold text-navy-900">43 students</span>{" "}
-            matched to this center · community formed 12 days before exam day
-          </p>
-        </motion.div>
+        <ExamCenterAnimation />
       </div>
     </section>
+  );
+}
+
+function ExamCenterAnimation() {
+  return (
+    <div
+      className="relative mx-auto aspect-[1.12] w-full max-w-xl overflow-hidden rounded-3xl border border-navy-900/5 bg-white shadow-soft"
+      aria-label="Animated map showing students from different states meeting at one exam center"
+    >
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.65 }}
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(47,191,113,0.18),transparent_34%),linear-gradient(135deg,rgba(15,163,163,0.08),rgba(15,42,94,0.04))]" />
+
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 640 460"
+        role="img"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="routeGradient" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stopColor="#2FBF71" />
+            <stop offset="100%" stopColor="#0FA3A3" />
+          </linearGradient>
+        </defs>
+
+        {ROUTE_POINTS.map((point) => (
+          <motion.path
+            key={point.code}
+            d={`M ${point.x} ${point.y} Q ${(point.x + CENTER_POINT.x) / 2} ${
+              point.y < CENTER_POINT.y ? point.y + 48 : point.y - 48
+            } ${CENTER_POINT.x} ${CENTER_POINT.y}`}
+            fill="none"
+            stroke="url(#routeGradient)"
+            strokeLinecap="round"
+            strokeWidth="3"
+            strokeDasharray="9 14"
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 0.7 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.6, delay: point.delay * 0.12, ease: "easeInOut" }}
+          />
+        ))}
+      </svg>
+
+      {ROUTE_POINTS.map((point) => (
+        <div
+          key={point.code}
+          className="absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+          style={{ left: point.left, top: point.top }}
+        >
+          <div className="grid h-11 w-11 place-items-center rounded-full border-2 border-white bg-navy-900 text-xs font-bold text-white shadow-card">
+            {point.code}
+          </div>
+          <span className="hidden rounded-full bg-white/85 px-2 py-0.5 text-[10px] font-semibold text-navy-700 shadow-sm sm:block">
+            {point.state}
+          </span>
+        </div>
+      ))}
+
+      {ROUTE_POINTS.map((point) => (
+        <motion.div
+          key={`${point.code}-traveler`}
+          className="absolute z-20 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white bg-brand-gradient text-white shadow-card"
+          style={{ left: point.left, top: point.top }}
+          animate={{
+            left: [point.left, CENTER_POINT.left],
+            top: [point.top, CENTER_POINT.top],
+            opacity: [0, 1, 1, 0],
+            scale: [0.75, 1, 0.92, 0.65],
+          }}
+          transition={{
+            duration: 4.8,
+            delay: point.delay,
+            repeat: Infinity,
+            repeatDelay: 1.2,
+            ease: "easeInOut",
+          }}
+        >
+          <UserRound className="h-4 w-4" />
+        </motion.div>
+      ))}
+
+      <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          className="grid h-28 w-28 place-items-center rounded-full border-4 border-white bg-navy-900 text-center text-sm font-bold uppercase leading-tight text-white shadow-soft ring-8 ring-white/55 backdrop-blur sm:h-32 sm:w-32 sm:text-base"
+          animate={{ y: [0, -5, 0] }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <span>Exam Center</span>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-5 left-1/2 z-30 w-[calc(100%-2.5rem)] -translate-x-1/2 rounded-2xl border border-navy-900/5 bg-white/80 px-4 py-3 text-center text-xs font-semibold text-navy-700/70 shadow-card backdrop-blur sm:text-sm">
+        Students from nearby states get matched to the same exam center.
+      </div>
+    </div>
   );
 }

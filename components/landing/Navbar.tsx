@@ -2,16 +2,16 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X, Home, Compass, ShieldCheck, Users, HelpCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home", icon: Home },
-  { label: "How It Works", href: "#how-it-works", icon: Compass },
-  { label: "Safety", href: "#safety", icon: ShieldCheck },
-  { label: "Community", href: "#community", icon: Users },
-  { label: "FAQs", href: "#faq", icon: HelpCircle },
+  { label: "Home", href: "#home" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Safety", href: "#safety" },
+  { label: "Community", href: "#community" },
+  { label: "FAQs", href: "#faq" },
 ];
 
 export function Navbar() {
@@ -49,15 +49,16 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden items-center gap-7 lg:flex">
-            {NAV_LINKS.map(({ label, href, icon: Icon }) => (
+          <ul className="hidden items-center rounded-full border border-navy-900/5 bg-navy-50/70 p-1 lg:flex">
+            {NAV_LINKS.map(({ label, href }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  className="flex items-center gap-1.5 text-sm font-medium text-navy-700/80 transition-colors hover:text-teal-600"
+                  className="group relative block overflow-hidden rounded-full px-4 py-2 text-sm font-semibold text-navy-700/75 transition-colors duration-300 hover:text-navy-900"
                 >
-                  <Icon className="h-4 w-4" />
-                  {label}
+                  <span className="absolute inset-0 origin-left scale-x-0 rounded-full bg-white shadow-sm transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  <span className="absolute inset-x-4 bottom-1 h-0.5 origin-left scale-x-0 rounded-full bg-brand-gradient transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  <span className="relative">{label}</span>
                 </Link>
               </li>
             ))}
@@ -87,14 +88,13 @@ export function Navbar() {
         {open && (
           <div className="border-t border-navy-900/10 bg-white px-5 pb-6 pt-2 lg:hidden">
             <ul className="flex flex-col gap-1">
-              {NAV_LINKS.map(({ label, href, icon: Icon }) => (
+              {NAV_LINKS.map(({ label, href }) => (
                 <li key={href}>
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-2 rounded-lg px-2 py-3 text-sm font-medium text-navy-700 hover:bg-navy-50"
+                    className="block rounded-xl px-3 py-3 text-sm font-semibold text-navy-700 transition-colors hover:bg-navy-50 hover:text-teal-700"
                   >
-                    <Icon className="h-4 w-4" />
                     {label}
                   </Link>
                 </li>
