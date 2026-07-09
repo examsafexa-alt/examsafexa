@@ -5,6 +5,9 @@
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_DB = process.env.MONGODB_DB || "examsafexa";
+
+mongoose.set("bufferCommands", false);
 
 let cached = (global as any).mongoose;
 if (!cached) {
@@ -21,7 +24,17 @@ export async function connectToDatabase() {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI).then((m) => m);
+    cached.promise = mongoose
+      .connect(MONGODB_URI, {
+        dbName: MONGODB_DB,
+        maxPoolSize: 10,
+        serverSelectionTimeoutMS: 10000,
+      })
+      .then((m) => m)
+      .catch((error) => {
+        cached.promise = null;
+        throw error;
+      });
   }
   cached.conn = await cached.promise;
   return cached.conn;

@@ -15,6 +15,51 @@ const registerSchema = z.object({
   parentEmail: z.string().email().optional().or(z.literal("")),
 });
 
+function getRegisterErrorResponse(error: unknown) {
+  if (error instanceof z.ZodError) {
+    return NextResponse.json({ message: "Please check the form fields and try again." }, { status: 400 });
+  }
+
+  const mongoError = error as Error & { code?: number };
+  const message = mongoError?.message?.toLowerCase() ?? "";
+
+  if (mongoError?.code === 11000) {
+    return NextResponse.json({ message: "An account with this email already exists." }, { status: 409 });
+  }
+
+  if (message.includes("mongodb_uri is not set")) {
+    return NextResponse.json(
+      { message: "MongoDB is not configured. Add MONGODB_URI to the deployment environment variables." },
+      { status: 500 }
+    );
+  }
+
+  if (message.includes("authentication failed") || message.includes("bad auth")) {
+    return NextResponse.json(
+      { message: "MongoDB authentication failed. Check the username and password in MONGODB_URI." },
+      { status: 500 }
+    );
+  }
+
+  if (
+    message.includes("server selection timed out") ||
+    message.includes("querysrv") ||
+    message.includes("econnrefused") ||
+    message.includes("enotfound")
+  ) {
+    return NextResponse.json(
+      {
+        message:
+          "Could not reach MongoDB. Check Atlas Network Access and make sure your deployment can connect to the cluster.",
+      },
+      { status: 500 }
+    );
+  }
+
+  console.error("[register:error]", error);
+  return NextResponse.json({ message: "Could not create your account right now." }, { status: 500 });
+}
+
 export async function POST(request: Request) {
   try {
     const payload = registerSchema.parse(await request.json());
@@ -48,28 +93,6 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ message: "Please check the form fields and try again." }, { status: 400 });
-    }
-
-    if (error instanceof Error && error.message.includes("MONGODB_URI is not set")) {
-      return NextResponse.json(
-        { message: "MongoDB is not configured. Add MONGODB_URI to .env.local and restart the server." },
-        { status: 500 }
-      );
-    }
-
-    if (
-      error instanceof Error &&
-      (error.message.includes("authentication failed") || error.message.includes("bad auth"))
-    ) {
-      return NextResponse.json(
-        { message: "MongoDB authentication failed. Check the credentials in MONGODB_URI and restart the server." },
-        { status: 500 }
-      );
-    }
-
-    console.error("[register:error]", error);
-    return NextResponse.json({ message: "Could not create your account right now." }, { status: 500 });
+    return getRegisterErrorResponse(error);
   }
 }

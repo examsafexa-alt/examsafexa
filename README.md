@@ -15,12 +15,15 @@ Fill these required values in `.env.local`:
 
 ```bash
 MONGODB_URI=
+MONGODB_DB=examsafexa
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=
 NEXT_PUBLIC_MAPBOX_TOKEN=
 ```
 
 `NEXT_PUBLIC_MAPBOX_TOKEN` is optional for local development. Without it, the center picker shows a branded fallback pin layout instead of the live Mapbox map.
+
+For deployment, set `NEXTAUTH_URL` to the real production URL, not localhost. The MongoDB URI should include the database name, for example `/examsafexa` before the query string; the app also falls back to `MONGODB_DB=examsafexa` when the URI has no database path.
 
 Seed exams and centers:
 
