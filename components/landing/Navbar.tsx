@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -37,9 +38,11 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
           {/* Logo / wordmark */}
           <Link href="#home" className="flex items-center gap-2" aria-label="ExamSafexa home">
-            <img
+            <Image
               src="/brand/examsafexa-logo.jpeg"
               alt=""
+              width={44}
+              height={44}
               className="h-11 w-11 rounded-full border border-navy-900/10 bg-white object-cover object-top shadow-sm"
             />
             <span className="font-display text-xl font-semibold tracking-tight">

@@ -93,7 +93,9 @@ async function main() {
     throw new Error("MONGODB_URI is required. Add it to .env.local before running npm run seed.");
   }
 
-  await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URI, {
+    dbName: process.env.MONGODB_DB || "examsafexa",
+  });
 
   const examDocs = await Promise.all(
     exams.map((exam) =>
