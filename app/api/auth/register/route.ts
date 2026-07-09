@@ -46,6 +46,9 @@ function getRegisterErrorResponse(error: unknown) {
     message.includes("querysrv") ||
     message.includes("econnrefused") ||
     message.includes("enotfound") ||
+    message.includes("could not connect to any servers") ||
+    message.includes("whitelist") ||
+    message.includes("whitelisted") ||
     message.includes("before initial connection is complete") ||
     message.includes("buffering timed out") ||
     message.includes("connection is not open")
