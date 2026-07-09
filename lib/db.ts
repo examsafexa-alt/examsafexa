@@ -15,7 +15,12 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
-  if (cached.conn) return cached.conn;
+  if (cached.conn && mongoose.connection.readyState === 1) return cached.conn;
+
+  cached.conn = null;
+  if (mongoose.connection.readyState === 0) {
+    cached.promise = null;
+  }
 
   if (!MONGODB_URI) {
     throw new Error(

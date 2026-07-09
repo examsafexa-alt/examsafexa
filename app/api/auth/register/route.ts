@@ -45,7 +45,10 @@ function getRegisterErrorResponse(error: unknown) {
     message.includes("server selection timed out") ||
     message.includes("querysrv") ||
     message.includes("econnrefused") ||
-    message.includes("enotfound")
+    message.includes("enotfound") ||
+    message.includes("before initial connection is complete") ||
+    message.includes("buffering timed out") ||
+    message.includes("connection is not open")
   ) {
     return NextResponse.json(
       {
