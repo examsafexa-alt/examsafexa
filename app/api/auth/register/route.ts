@@ -59,6 +59,16 @@ export async function POST(request: Request) {
       );
     }
 
+    if (
+      error instanceof Error &&
+      (error.message.includes("authentication failed") || error.message.includes("bad auth"))
+    ) {
+      return NextResponse.json(
+        { message: "MongoDB authentication failed. Check the credentials in MONGODB_URI and restart the server." },
+        { status: 500 }
+      );
+    }
+
     console.error("[register:error]", error);
     return NextResponse.json({ message: "Could not create your account right now." }, { status: 500 });
   }
