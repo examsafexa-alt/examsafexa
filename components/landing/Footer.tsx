@@ -2,10 +2,11 @@ import Link from "next/link";
 import { Instagram, Twitter, Linkedin, Send } from "lucide-react";
 
 const QUICK_LINKS = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Safety", href: "#safety" },
-  { label: "Community", href: "#community" },
-  { label: "FAQs", href: "#faq" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Safety", href: "/#safety" },
+  { label: "Community", href: "/#community" },
+  { label: "Company", href: "/about-company" },
+  { label: "FAQs", href: "/#faq" },
 ];
 
 const LEGAL_LINKS = [
@@ -94,7 +95,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} ExamSafexa. All rights reserved.
+          © {new Date().getFullYear()} ExamSafexa Technology . All rights reserved.
         </div>
       </div>
     </footer>

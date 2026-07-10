@@ -5,6 +5,8 @@ import { CalendarDays, History, MapPin, ShieldCheck, Users } from "lucide-react"
 import { authOptions } from "@/lib/auth";
 import { connectToDatabase } from "@/lib/db";
 import User from "@/models/User";
+import Exam from "@/models/Exam";
+import ExamCenter from "@/models/ExamCenter";
 import Community from "@/models/Community";
 import LocationShare from "@/models/LocationShare";
 import { Card } from "@/components/ui/card";
@@ -17,7 +19,10 @@ export default async function DashboardPage() {
   if (!session?.user?.id) redirect("/login");
 
   await connectToDatabase();
-  const user = (await User.findById(session.user.id).populate("examSelected").populate("examCenterSelected").lean()) as any;
+  const user = (await User.findById(session.user.id)
+    .populate({ path: "examSelected", model: Exam })
+    .populate({ path: "examCenterSelected", model: ExamCenter })
+    .lean()) as any;
   if (!user) redirect("/login");
 
   const exam = user.examSelected as any;

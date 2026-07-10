@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Safety", href: "#safety" },
-  { label: "Community", href: "#community" },
-  { label: "Company", href: "#company" },
-  { label: "FAQs", href: "#faq" },
+  { label: "Home", href: "/#home" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Safety", href: "/#safety" },
+  { label: "Community", href: "/#community" },
+  { label: "Company", href: "/about-company" },
+  { label: "FAQs", href: "/#faq" },
 ];
 
 export function Navbar() {
@@ -38,7 +38,7 @@ export function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
           {/* Logo / wordmark */}
-          <Link href="#home" className="flex items-center gap-2" aria-label="ExamSafexa home">
+          <Link href="/#home" className="flex items-center gap-2" aria-label="ExamSafexa home">
             <Image
               src="/brand/examsafexa-logo.jpeg"
               alt=""

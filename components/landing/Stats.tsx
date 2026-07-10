@@ -13,7 +13,7 @@ const CITY_PINS = [
 ];
 
 const STATS = [
-  { icon: Users, value: "500+", label: "Students onboarded", tone: "navy" },
+  { icon: Users, value: "50+", label: "Students onboarded", tone: "navy" },
   { icon: Building2, value: "120+", label: "Exam centers mapped", tone: "gradient" },
   { icon: MapIcon, value: "30+", label: "Cities covered", tone: "gradient" },
   { icon: MessageCircleHeart, value: "4", label: "Safety features", tone: "navy" },
