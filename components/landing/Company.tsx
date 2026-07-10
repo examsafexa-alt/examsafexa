@@ -230,7 +230,7 @@ export function Company() {
         <div className="mt-10 rounded-lg border border-navy-900/10 bg-white p-6 shadow-card">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-teal-50 text-teal-700">
-              <Sparkles className="h-5 w-5" />
+             
             </div>
             <div>
               <h2 className="font-display text-2xl font-semibold">

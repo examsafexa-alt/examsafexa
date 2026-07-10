@@ -17,8 +17,26 @@ export interface User {
 export interface Exam {
   name: string;
   code: string; // e.g. "NEET", "JEE-MAIN", "UPSC-CSE"
-  examDate: Date;
-  category: "medical" | "engineering" | "civil-services" | "state-psc" | "ssc" | "other";
+  examDate?: Date;
+  category:
+    | "central-government"
+    | "judiciary-legal"
+    | "state-government"
+    | "psu-recruitment"
+    | "university-entrance"
+    | "professional-bodies"
+    | "school-boards"
+    | "international"
+    | "medical"
+    | "engineering"
+    | "civil-services"
+    | "state-psc"
+    | "ssc"
+    | "other";
+  group?: string;
+  conductingBody?: string;
+  purpose?: string;
+  sourceSheet?: string;
 }
 
 export interface ExamCenter {

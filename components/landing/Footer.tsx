@@ -95,7 +95,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} ExamSafexa Technology . All rights reserved.
+          © {new Date().getFullYear()} ExamSafexa Technologies . All rights reserved.
         </div>
       </div>
     </footer>

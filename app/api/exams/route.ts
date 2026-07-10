@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   await connectToDatabase();
-  const exams = (await Exam.find({}).sort({ examDate: 1 }).lean()) as any[];
+  const exams = (await Exam.find({}).sort({ category: 1, group: 1, name: 1 }).lean()) as any[];
 
   return NextResponse.json({
     exams: exams.map((exam) => ({
@@ -15,6 +15,10 @@ export async function GET() {
       code: exam.code,
       category: exam.category,
       examDate: exam.examDate,
+      group: exam.group,
+      conductingBody: exam.conductingBody,
+      purpose: exam.purpose,
+      sourceSheet: exam.sourceSheet,
     })),
   });
 }

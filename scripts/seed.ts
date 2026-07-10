@@ -3,6 +3,7 @@ import path from "node:path";
 import mongoose from "mongoose";
 import Exam from "../models/Exam";
 import ExamCenter from "../models/ExamCenter";
+import { EXAM_CATALOG } from "../lib/examCatalog";
 
 function loadEnvLocal() {
   const envPath = path.join(process.cwd(), ".env.local");
@@ -19,15 +20,15 @@ function loadEnvLocal() {
   }
 }
 
-const exams = [
-  { name: "NEET UG", code: "NEET-UG", category: "medical", examDate: new Date("2027-05-02") },
-  { name: "JEE Main", code: "JEE-MAIN", category: "engineering", examDate: new Date("2027-01-24") },
-  { name: "JEE Advanced", code: "JEE-ADV", category: "engineering", examDate: new Date("2027-05-23") },
-  { name: "UPSC CSE Prelims", code: "UPSC-CSE", category: "civil-services", examDate: new Date("2027-05-30") },
-  { name: "SSC CGL", code: "SSC-CGL", category: "ssc", examDate: new Date("2027-09-12") },
-  { name: "UPPSC PCS", code: "UPPSC-PCS", category: "state-psc", examDate: new Date("2027-10-10") },
-  { name: "BPSC CCE", code: "BPSC-CCE", category: "state-psc", examDate: new Date("2027-11-07") },
-] as const;
+const examDateByCode: Record<string, Date> = {
+  "NEET-UG": new Date("2027-05-02"),
+  "JEE-MAIN": new Date("2027-01-24"),
+  "JEE-ADV": new Date("2027-05-23"),
+  "UPSC-CSE": new Date("2027-05-30"),
+  "SSC-CGL": new Date("2027-09-12"),
+  "UPPSC-PCS": new Date("2027-10-10"),
+  "BPSC-CCE": new Date("2027-11-07"),
+};
 
 const centers = [
   {
@@ -98,9 +99,16 @@ async function main() {
   });
 
   const examDocs = await Promise.all(
-    exams.map((exam) =>
-      Exam.findOneAndUpdate({ code: exam.code }, exam, { upsert: true, new: true, setDefaultsOnInsert: true })
-    )
+    EXAM_CATALOG.map((exam) => {
+      const examDate = examDateByCode[exam.code];
+      const payload = examDate ? { ...exam, examDate } : exam;
+
+      return Exam.findOneAndUpdate(
+        { code: exam.code },
+        { $set: payload },
+        { upsert: true, new: true, setDefaultsOnInsert: true }
+      );
+    })
   );
 
   const examIdByCode = new Map(examDocs.map((exam) => [exam.code, exam._id]));

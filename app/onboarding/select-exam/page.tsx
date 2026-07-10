@@ -13,7 +13,9 @@ type Exam = {
   name: string;
   code: string;
   category: string;
-  examDate: string;
+  examDate?: string;
+  group?: string;
+  conductingBody?: string;
 };
 
 export default function SelectExamPage() {
@@ -87,7 +89,9 @@ export default function SelectExamPage() {
 
 function ExamCard({ exam, selected, onSelect }: { exam: Exam; selected: boolean; onSelect: () => void }) {
   const countdown = useMemo(() => {
+    if (!exam.examDate) return "Date to be announced";
     const examTime = new Date(exam.examDate).getTime();
+    if (Number.isNaN(examTime)) return "Date to be announced";
     const days = Math.ceil((examTime - Date.now()) / (1000 * 60 * 60 * 24));
     if (days < 0) return "Date passed";
     if (days === 0) return "Today";
@@ -111,12 +115,17 @@ function ExamCard({ exam, selected, onSelect }: { exam: Exam; selected: boolean;
           selected ? "bg-white/20 text-white" : "bg-navy-50 text-navy-700"
         )}
       >
-        {exam.category.replace("-", " ")}
+        {exam.category.replace(/-/g, " ")}
       </span>
       <h2 className="mt-5 font-display text-3xl font-semibold">{exam.name}</h2>
       <p className={cn("mt-1 text-sm font-semibold", selected ? "text-white/70" : "text-navy-700/65")}>
         {exam.code}
       </p>
+      {exam.group || exam.conductingBody ? (
+        <p className={cn("mt-3 line-clamp-2 text-sm", selected ? "text-white/75" : "text-navy-700/65")}>
+          {[exam.group, exam.conductingBody].filter(Boolean).join(" · ")}
+        </p>
+      ) : null}
       <div className={cn("mt-8 flex items-center gap-2 text-sm font-semibold", selected ? "text-white" : "text-teal-700")}>
         <CalendarDays className="h-4 w-4" />
         {countdown}
