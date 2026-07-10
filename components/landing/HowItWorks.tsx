@@ -52,7 +52,7 @@ export function HowItWorks() {
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-gradient text-white">
                 <step.icon className="h-5 w-5" />
               </div>
-              <span className="font-display text-3xl font-semibold text-navy-900/10">
+              <span className="font-display text-3xl font-semibold text-navy-900/40">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>

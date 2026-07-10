@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { BrandLoader } from "@/components/BrandLoader";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -51,8 +52,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${jakarta.variable}`}>
       <body className="font-sans antialiased">
-        <BrandLoader />
-        {children}
+        <Providers>
+          <BrandLoader />
+          {children}
+        </Providers>
       </body>
     </html>
   );

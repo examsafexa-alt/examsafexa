@@ -34,7 +34,7 @@ const TESTIMONIALS: Testimonial[] = [
 const TRUST_STATS = [
   { value: 50, suffix: "+", label: "Students" },
   { value: 500, suffix: "+", label: "Cities" },
-  { value: 29, suffix: "+", label: "States" },
+  { value: 28, suffix: "+", label: "States" },
 ] as const;
 
 export function Testimonials() {
