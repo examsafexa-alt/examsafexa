@@ -7,24 +7,48 @@ import {
 
 const FAQS = [
   {
-    q: "Is ExamSafexa free to use?",
-    a: "Yes — finding your center, seeing your route, and joining your exam community are all free for students.",
+    q: "Is Exam Safexa free to use?",
+    a: "Yes, completely free right now during early access. Core group formation, matching, and basic safety tools will stay free. Optional paid services may be added later with clear notice.",
   },
   {
-    q: "Is live location sharing mandatory?",
-    a: "No. It's entirely optional and off by default. You choose whether to enable it, for how long, and who can see it.",
+    q: "How does matching work today?",
+    a: "When you sign up, we form groups based on the details you provide, including your exam, city, date, and selected center. Students in the same group are travelling for the same exam around the same time.",
   },
   {
-    q: "How is my data used?",
-    a: "Your details are used only to match you with your exam center and community, and — if you opt in — to power the safety layer. We don't sell your data.",
+    q: "Is my identity verified before I am matched with others?",
+    a: "Right now, matching uses self-declared details plus account information. Stronger admit-card-based verification is planned, so students should still chat with their group and keep a parent or guardian informed before finalizing travel.",
   },
   {
-    q: "Which exams are supported?",
-    a: "NEET, JEE, UPSC, SSC, and various State PCS exams to start, with more added each season based on demand.",
+    q: "Does Exam Safexa book my travel or stay?",
+    a: "No, not yet. Exam Safexa currently helps form your travel group. You and your group members arrange travel and accommodation independently. Booking support for trains, buses, cabs, and stays is planned for a future update.",
   },
   {
-    q: "Is this affiliated with any exam board?",
-    a: "No. ExamSafexa is an independent student-community platform, not affiliated with NTA, UPSC, SSC, or any other examination body.",
+    q: "Is location sharing mandatory?",
+    a: "No. Location sharing is completely opt-in and off by default. You choose if, when, and with whom you share it.",
+  },
+  {
+    q: "Is my personal data safe?",
+    a: "We collect only what is needed to create your account, match your exam journey, and power optional safety features. We do not sell your data, and you can request deletion of your account and data.",
+  },
+  {
+    q: "Will Exam Safexa always be free?",
+    a: "Core group formation, matching, and basic safety tools will remain free. Future services like verified accommodation, travel booking, or concierge support may become optional paid features.",
+  },
+  {
+    q: "Is there an Exam Safexa app?",
+    a: "Not yet. Exam Safexa is currently available on the web. A dedicated mobile app for faster matching, chat, and alerts is planned.",
+  },
+  {
+    q: "Which exams does Exam Safexa currently support?",
+    a: "We are starting with major national exams such as UPSC, SSC, Railways, Banking, NEET, JEE, and CUET, then expanding to state-level exams as we grow city by city.",
+  },
+  {
+    q: "Is Exam Safexa affiliated with UPSC, NTA, SSC, or any government exam body?",
+    a: "No. Exam Safexa is an independent student safety and travel platform. Always confirm your official exam center and admit card details on the official exam-body website.",
+  },
+  {
+    q: "I run a coaching institute. Can we partner with Exam Safexa?",
+    a: "Yes. Coaching institutes can partner with us to offer verified group travel and safety support to their students.",
   },
 ];
 

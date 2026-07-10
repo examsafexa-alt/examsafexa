@@ -5,6 +5,7 @@ import { Stats } from "@/components/landing/Stats";
 import { CommunityHighlight } from "@/components/landing/CommunityHighlight";
 import { SafetySection } from "@/components/landing/SafetySection";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { Company } from "@/components/landing/Company";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <CommunityHighlight />
       <SafetySection />
       <Testimonials />
+      <Company />
       <FAQ />
       <FinalCTA />
       <Footer />
