@@ -138,7 +138,7 @@ export function Features() {
       <div className="my-12 flex items-center gap-4">
         <div className="h-px flex-1 bg-navy-900/8" />
         <div className="flex items-center gap-2 rounded-full border border-navy-900/10 bg-navy-50 px-4 py-1.5">
-          <Sparkles className="h-3.5 w-3.5 text-teal-600" />
+  
           <span className="text-xs font-semibold text-navy-700">
             Coming soon
           </span>

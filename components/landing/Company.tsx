@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   BadgeCheck,
   Building2,
   GraduationCap,
   HeartHandshake,
+  Linkedin,
   MapPinned,
-  Quote,
   ShieldCheck,
   UsersRound,
 } from "lucide-react";
@@ -15,11 +16,12 @@ import {
 const TEAM = [
   {
     name: "Anisha Jaiswal",
-    role: "Founder & Owner, Safexa Technology Company",
+    role: "Founder & Owner, Safexa Technologies Company",
     tag: "Founder",
     edu: "MBA in Human Resources Management, National Institute of Technology, Kurukshetra",
     copy: "Leads the vision for Exam Safexa and Safexa Technology, building a safer exam journey for students and the families who worry about them. Started this because every year, millions of Indian students travel alone to exams that can change their lives — with no trusted way to find someone to make that journey with.",
     quote: "Thank you for being here this early. Never travel alone for an exam.",
+    linkedin: "https://www.linkedin.com/in/anisha-jaiswal-125870100/",
     head: true,
     initials: "AJ",
   },
@@ -29,6 +31,7 @@ const TEAM = [
     tag: "R&D",
     edu: "MBA in Business Analytics, Kurukshetra University",
     copy: "Leads R&D at Exam Safexa — researching government exams, universities, scholarships, and student needs to shape what we build next. Works on product planning, exam database design, user journey mapping, and market validation.",
+    linkedin: "",
     initials: "DY",
   },
   {
@@ -37,6 +40,7 @@ const TEAM = [
     tag: "Engineering",
     edu: "B.Tech in Computer Science & Engineering, NIT Agartala",
     copy: "Leads engineering at Exam Safexa — backend, full-stack architecture, and the platform's matching engine. Currently interning in AI/backend engineering at the National Informatics Centre (NIC), with hands-on experience shipping full-stack platforms with real users.",
+    linkedin: "https://www.linkedin.com/in/satyam-kumar-kesarwani-763b61293/",
     initials: "SK",
   },
 ];
@@ -108,14 +112,21 @@ export function Company() {
             transition={{ duration: 0.55, delay: 0.1 }}
             className="grid gap-4"
           >
-            <div className="grid aspect-[4/3] place-items-center rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_32px_90px_-46px_rgba(20,184,174,0.75)]">
-              <div className="text-center">
-                <Quote className="mx-auto h-10 w-10 text-teal-300/60" />
-                <p className="mx-auto mt-5 max-w-sm font-display text-2xl font-semibold leading-snug">
-                  We're early, completely free, and building step by step —
-                  guided entirely by what our users tell us they need.
+            <div className="grid aspect-[4/3] place-items-center rounded-2xl border border-white/10 bg-white/5 p-8 shadow-[0_32px_90px_-46px_rgba(20,184,174,0.75)]">
+              <div className="flex flex-col items-center text-center">
+                <Image
+                  src="/brand/examsafexa-logo.jpeg"
+                  alt="ExamSafexa logo"
+                  width={120}
+                  height={120}
+                  className="rounded-full border-4 border-white/20 shadow-soft"
+                />
+                <p className="mt-6 font-display text-2xl font-semibold text-white">
+                  Exam<span className="text-teal-300">Safexa</span>
                 </p>
-                <p className="mt-4 text-sm text-white/50">— Anisha Jaiswal, Founder</p>
+                <p className="mt-2 text-sm text-white/55">
+                  Safexa Technologies Company
+                </p>
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
@@ -243,44 +254,29 @@ export function Company() {
                 {member.quote && (
                   <blockquote className="mt-5 border-l-2 border-teal-400 pl-4">
                     <p className="text-sm font-semibold italic text-navy-900/80">
-                      "{member.quote}"
+                      &ldquo;{member.quote}&rdquo;
                     </p>
                   </blockquote>
+                )}
+
+                {/* LinkedIn */}
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full border border-navy-900/10 bg-navy-50 px-4 py-2 text-sm font-semibold text-navy-700 transition hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </a>
                 )}
               </div>
             </motion.article>
           ))}
         </div>
 
-        {/* ── NIT + NIC credibility strip ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-8 rounded-2xl border border-navy-900/10 bg-white p-6 shadow-card"
-        >
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-teal-50 text-teal-700">
-              <GraduationCap className="h-6 w-6" />
-            </div>
-            <div>
-              <h2 className="font-display text-xl font-semibold text-navy-900">
-                Built by people with skin in the game
-              </h2>
-              <p className="mt-1.5 text-sm leading-6 text-navy-700/70">
-                Our team combines an NIT Kurukshetra MBA, an NIT Agartala
-                engineering degree, and active experience at the{" "}
-                <span className="font-semibold text-navy-900">
-                  National Informatics Centre (NIC)
-                </span>{" "}
-                — the government body that powers India's digital infrastructure.
-                We're early, but we're not guessing. We're building with
-                academic rigour and real engineering behind every decision.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

@@ -54,7 +54,7 @@ const FAQS = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="mx-auto max-w-3xl px-5 py-24 lg:px-8">
+    <section id="faq" className="mx-auto max-w-3xl px-5 pt-10 pb-24 lg:px-8">
       <div className="text-center">
         <p className="text-sm font-semibold uppercase tracking-wide text-teal-600">
           FAQs

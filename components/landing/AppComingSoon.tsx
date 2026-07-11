@@ -38,7 +38,7 @@ export function AppComingSoon() {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-5 pt-24 pb-10 lg:px-8">
       {/* Section header — same pattern as HowItWorks / CommunityHighlight */}
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-sm font-semibold uppercase tracking-wide text-teal-600">
