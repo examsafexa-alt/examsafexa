@@ -145,8 +145,8 @@ export function Company() {
                   Our promise
                 </p>
                 <p className="mx-auto mt-3 max-w-xs text-sm leading-6 text-white/65 italic">
-                  "Never travel alone for an exam. We're building this step by
-                  step, guided by what students tell us they need."
+                  &ldquo;Never travel alone for an exam. We&apos;re building this step by
+                  step, guided by what students tell us they need.&rdquo;
                 </p>
                 <p className="mt-2 text-xs text-white/35">— Anisha Jaiswal, Founder</p>
               </div>
@@ -172,8 +172,8 @@ export function Company() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-navy-700/65 md:text-right">
-            We've either lived this problem ourselves or watched someone we care
-            about face it. Here's who's behind the journey.
+            We&apos;ve either lived this problem ourselves or watched someone we care
+            about face it. Here&apos;s who&apos;s behind the journey.
           </p>
         </div>
 
