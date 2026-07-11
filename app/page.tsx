@@ -7,6 +7,7 @@ import { SafetySection } from "@/components/landing/SafetySection";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
+import { AppComingSoon } from "@/components/landing/AppComingSoon";
 import { Footer } from "@/components/landing/Footer";
 
 export default function HomePage() {
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Testimonials />
       <FAQ />
       <FinalCTA />
+      <AppComingSoon />
       <Footer />
     </main>
   );
