@@ -4,12 +4,11 @@ import { motion } from "framer-motion";
 import {
   BadgeCheck,
   Building2,
-  Camera,
   GraduationCap,
   HeartHandshake,
   MapPinned,
+  Quote,
   ShieldCheck,
-  Sparkles,
   UsersRound,
 } from "lucide-react";
 
@@ -17,20 +16,27 @@ const TEAM = [
   {
     name: "Anisha Jaiswal",
     role: "Founder & Owner, Safexa Technology Company",
-    copy: "Leads the vision for Exam Safexa and Safexa Technology, building a safer exam journey for students and the families who worry about them.",
+    tag: "Founder",
+    edu: "MBA in Human Resources Management, National Institute of Technology, Kurukshetra",
+    copy: "Leads the vision for Exam Safexa and Safexa Technology, building a safer exam journey for students and the families who worry about them. Started this because every year, millions of Indian students travel alone to exams that can change their lives — with no trusted way to find someone to make that journey with.",
+    quote: "Thank you for being here this early. Never travel alone for an exam.",
     head: true,
     initials: "AJ",
   },
   {
     name: "Deepanshu Yadav",
-    role: "Research & Development",
-    copy: "Researches exams, universities, scholarships, and student needs to shape product planning and market validation.",
+    role: "Core Team — Research & Development",
+    tag: "R&D",
+    edu: "MBA in Business Analytics, Kurukshetra University",
+    copy: "Leads R&D at Exam Safexa — researching government exams, universities, scholarships, and student needs to shape what we build next. Works on product planning, exam database design, user journey mapping, and market validation.",
     initials: "DY",
   },
   {
     name: "Satyam Kumar Kesarwani",
-    role: "Technology",
-    copy: "Builds the platform architecture, backend systems, and matching experience that power Exam Safexa.",
+    role: "Core Team — Technology",
+    tag: "Engineering",
+    edu: "B.Tech in Computer Science & Engineering, NIT Agartala",
+    copy: "Leads engineering at Exam Safexa — backend, full-stack architecture, and the platform's matching engine. Currently interning in AI/backend engineering at the National Informatics Centre (NIC), with hands-on experience shipping full-stack platforms with real users.",
     initials: "SK",
   },
 ];
@@ -44,7 +50,7 @@ const VALUES = [
   {
     icon: MapPinned,
     title: "Built for journeys",
-    copy: "The product focuses on the exact time when students need clarity, company, and safety.",
+    copy: "The product focuses on the exact time when students need clarity, company, and safety most.",
   },
   {
     icon: HeartHandshake,
@@ -56,6 +62,7 @@ const VALUES = [
 export function Company() {
   return (
     <section id="company" className="bg-cloud text-navy-900">
+      {/* ── Hero banner ── */}
       <div className="bg-navy-900 text-white">
         <div className="mx-auto grid min-h-[calc(100vh-84px)] max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8">
           <motion.div
@@ -69,15 +76,15 @@ export function Company() {
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
               About Exam Safexa
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
               Every year, millions of Indian students travel to unfamiliar cities
-              for exams that can shape their future. Exam Safexa exists so that
-              journey feels safer, more verified, and less lonely.
+              for exams that can shape their entire future. Exam Safexa exists
+              so that journey feels safer, more connected, and less lonely.
             </p>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-white/70">
-              We help students find others appearing for the same exam, in the
-              same city, around the same date. Students arrange their own travel;
-              we help make sure they are not planning it as strangers.
+            <p className="mt-4 max-w-2xl text-base leading-8 text-white/65">
+              We help students find others appearing for the same exam at the
+              same center — so they plan travel as a community, not as
+              strangers.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -94,32 +101,29 @@ export function Company() {
             </div>
           </motion.div>
 
+          {/* Right — values grid */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.55, delay: 0.1 }}
             className="grid gap-4"
           >
-            <div className="grid aspect-[4/3] place-items-center rounded-lg border border-white/10 bg-white/8 p-6 shadow-[0_32px_90px_-46px_rgba(20,184,174,0.75)]">
+            <div className="grid aspect-[4/3] place-items-center rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_32px_90px_-46px_rgba(20,184,174,0.75)]">
               <div className="text-center">
-                <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-white/10 text-teal-300">
-                  <Camera className="h-9 w-9" />
-                </div>
-                <p className="mt-5 font-display text-2xl font-semibold">
-                  Company photo space
+                <Quote className="mx-auto h-10 w-10 text-teal-300/60" />
+                <p className="mx-auto mt-5 max-w-sm font-display text-2xl font-semibold leading-snug">
+                  We're early, completely free, and building step by step —
+                  guided entirely by what our users tell us they need.
                 </p>
-                <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-white/62">
-                  Add your office, team, founder, or student-safety visual here
-                  when your photo set is ready.
-                </p>
+                <p className="mt-4 text-sm text-white/50">— Anisha Jaiswal, Founder</p>
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
               {VALUES.map(({ icon: Icon, title, copy }) => (
-                <div key={title} className="rounded-lg border border-white/10 bg-white/8 p-4">
+                <div key={title} className="rounded-xl border border-white/10 bg-white/5 p-4">
                   <Icon className="h-5 w-5 text-teal-300" />
                   <h2 className="mt-3 text-sm font-semibold">{title}</h2>
-                  <p className="mt-2 text-xs leading-5 text-white/62">{copy}</p>
+                  <p className="mt-2 text-xs leading-5 text-white/60">{copy}</p>
                 </div>
               ))}
             </div>
@@ -127,7 +131,8 @@ export function Company() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      {/* ── Team section ── */}
+      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="flex items-center gap-3">
@@ -141,30 +146,32 @@ export function Company() {
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-6 text-navy-700/70">
-            A small team building the product, research, and safety systems
-            behind each student journey.
+            We're a small team building Exam Safexa because we've either lived
+            this problem ourselves or watched someone we care about live it.
+            Here's who's behind the journey so far.
           </p>
         </div>
 
-        <div className="mt-9 grid gap-5 lg:grid-cols-[1.35fr_0.85fr]">
+        <div className="mt-10 grid gap-6 lg:grid-cols-[1.35fr_0.85fr]">
           {TEAM.map((member, index) => (
             <motion.article
               key={member.name}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.45, delay: index * 0.06 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
               className={
                 member.head
-                  ? "rounded-lg border border-teal-200 bg-white p-5 shadow-card lg:row-span-2 lg:p-6"
-                  : "rounded-lg border border-navy-900/10 bg-white p-5 shadow-card lg:grid lg:grid-cols-[150px_1fr] lg:gap-5"
+                  ? "rounded-2xl border border-teal-200 bg-white p-6 shadow-card lg:row-span-2"
+                  : "rounded-2xl border border-navy-900/10 bg-white p-5 shadow-card"
               }
             >
+              {/* Photo placeholder */}
               <div
                 className={
                   member.head
-                    ? "grid aspect-[4/3] place-items-center rounded-lg border border-dashed border-navy-900/15 bg-navy-50 text-navy-700 lg:aspect-[5/4]"
-                    : "grid aspect-square place-items-center rounded-lg border border-dashed border-navy-900/15 bg-navy-50 text-navy-700"
+                    ? "grid aspect-[4/3] place-items-center rounded-xl border border-dashed border-navy-900/12 bg-navy-50 text-navy-700 lg:aspect-[5/4]"
+                    : "grid aspect-[3/1] place-items-center rounded-xl border border-dashed border-navy-900/12 bg-navy-50 text-navy-700 sm:aspect-square lg:aspect-auto lg:h-36"
                 }
               >
                 <div className="text-center">
@@ -177,20 +184,22 @@ export function Company() {
                   >
                     {member.initials}
                   </div>
-                  <p className="mt-4 text-xs font-bold uppercase tracking-wide text-navy-700/45">
+                  <p className="mt-3 text-xs font-bold uppercase tracking-wide text-navy-700/35">
                     Photo space
                   </p>
                 </div>
               </div>
 
-              <div className={member.head ? "mt-6" : "mt-5 lg:mt-0"}>
-                <div className="flex items-start justify-between gap-4">
+              {/* Content */}
+              <div className={member.head ? "mt-6" : "mt-5"}>
+                {/* Name + tag row */}
+                <div className="flex items-start justify-between gap-3">
                   <div>
                     <h3
                       className={
                         member.head
                           ? "font-display text-3xl font-semibold text-navy-900 sm:text-4xl"
-                          : "font-display text-2xl font-semibold text-navy-900 lg:text-xl"
+                          : "font-display text-xl font-semibold text-navy-900"
                       }
                     >
                       {member.name}
@@ -198,52 +207,80 @@ export function Company() {
                     <p
                       className={
                         member.head
-                          ? "mt-2 text-base font-semibold text-teal-700"
+                          ? "mt-1.5 text-base font-semibold text-teal-700"
                           : "mt-1 text-sm font-semibold text-teal-700"
                       }
                     >
                       {member.role}
                     </p>
                   </div>
-                  {member.head ? (
-                    <div className="inline-flex shrink-0 items-center gap-2 rounded-full bg-teal-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-teal-700">
-                      <GraduationCap className="h-3.5 w-3.5" />
-                      Founder
-                    </div>
-                  ) : null}
+                  <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-teal-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-teal-700">
+                    <GraduationCap className="h-3.5 w-3.5" />
+                    {member.tag}
+                  </span>
                 </div>
 
+                {/* Bio */}
                 <p
                   className={
                     member.head
-                      ? "mt-5 max-w-2xl text-base leading-8 text-navy-700/75"
+                      ? "mt-4 max-w-2xl text-base leading-7 text-navy-700/75"
                       : "mt-3 text-sm leading-6 text-navy-700/72"
                   }
                 >
                   {member.copy}
                 </p>
+
+                {/* Education badge */}
+                <div className="mt-4 inline-flex items-start gap-2 rounded-xl border border-navy-900/8 bg-navy-50 px-4 py-3">
+                  <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />
+                  <p className="text-sm font-semibold text-navy-900">
+                    {member.edu}
+                  </p>
+                </div>
+
+                {/* Founder's quote */}
+                {member.quote && (
+                  <blockquote className="mt-5 border-l-2 border-teal-400 pl-4">
+                    <p className="text-sm font-semibold italic text-navy-900/80">
+                      "{member.quote}"
+                    </p>
+                  </blockquote>
+                )}
               </div>
             </motion.article>
           ))}
         </div>
 
-        <div className="mt-10 rounded-lg border border-navy-900/10 bg-white p-6 shadow-card">
+        {/* ── NIT + NIC credibility strip ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-8 rounded-2xl border border-navy-900/10 bg-white p-6 shadow-card"
+        >
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-teal-50 text-teal-700">
-             
+              <GraduationCap className="h-6 w-6" />
             </div>
             <div>
-              <h2 className="font-display text-2xl font-semibold">
-                More stories can grow here
+              <h2 className="font-display text-xl font-semibold text-navy-900">
+                Built by people with skin in the game
               </h2>
-              <p className="mt-2 text-sm leading-6 text-navy-700/70">
-                This page is ready for future team photos, company moments,
-                milestones, student stories, or office images without changing
-                the main layout.
+              <p className="mt-1.5 text-sm leading-6 text-navy-700/70">
+                Our team combines an NIT Kurukshetra MBA, an NIT Agartala
+                engineering degree, and active experience at the{" "}
+                <span className="font-semibold text-navy-900">
+                  National Informatics Centre (NIC)
+                </span>{" "}
+                — the government body that powers India's digital infrastructure.
+                We're early, but we're not guessing. We're building with
+                academic rigour and real engineering behind every decision.
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -259,10 +296,10 @@ function InfoBlock({
   copy: string;
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/8 p-5">
+    <div className="rounded-xl border border-white/10 bg-white/5 p-5">
       <div className="text-teal-300">{icon}</div>
       <h2 className="mt-4 font-display text-xl font-semibold">{title}</h2>
-      <p className="mt-2 text-sm leading-6 text-white/68">{copy}</p>
+      <p className="mt-2 text-sm leading-6 text-white/65">{copy}</p>
     </div>
   );
 }

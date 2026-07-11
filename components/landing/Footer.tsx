@@ -89,7 +89,12 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-white">Contact</h4>
             <p className="mt-4 text-sm text-white/50">
-              examsafexa@gmail.com
+              <a
+                href="mailto:Support@examsafexa.com"
+                className="hover:text-white transition-colors"
+              >
+                Support@examsafexa.com
+              </a>
             </p>
           </div>
         </div>
