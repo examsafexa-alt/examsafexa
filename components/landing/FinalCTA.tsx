@@ -16,12 +16,9 @@ export function FinalCTA() {
           It takes under a minute to register and get matched with your exam
           community.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-8 flex justify-center">
           <Button size="lg" variant="gradient" asChild>
             <Link href="/register">Register Now</Link>
-          </Button>
-          <Button size="lg" variant="outlineLight" asChild>
-            <Link href="/how-it-works">See How It Works</Link>
           </Button>
         </div>
       </div>

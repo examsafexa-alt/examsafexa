@@ -20,9 +20,9 @@ export default function HomePage() {
       <CommunityHighlight />
       <SafetySection />
       <Testimonials />
+      <AppComingSoon />
       <FAQ />
       <FinalCTA />
-      <AppComingSoon />
       <Footer />
     </main>
   );
