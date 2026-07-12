@@ -10,10 +10,12 @@ import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { AppComingSoon } from "@/components/landing/AppComingSoon";
 import { Footer } from "@/components/landing/Footer";
+import { ScrollToSection } from "@/components/landing/ScrollToSection";
 
 export default function HomePage() {
   return (
     <main>
+      <ScrollToSection />
       <Navbar />
       <Hero />
       <HowItWorks />

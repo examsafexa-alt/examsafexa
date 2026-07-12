@@ -10,13 +10,13 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Home", href: "/#home" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Features", href: "/#features" },
-  { label: "Safety", href: "/#safety" },
-  { label: "Community", href: "/#community" },
+  { label: "Home", href: "/" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Features", href: "/features" },
+  { label: "Safety", href: "/safety" },
+  { label: "Community", href: "/community" },
   { label: "Company", href: "/about-company" },
-  { label: "FAQs", href: "/#faq" },
+  { label: "FAQs", href: "/faq" },
 ];
 
 export function Navbar() {

@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Instagram, Twitter, Linkedin, Send, MapPin } from "lucide-react";
 
 const QUICK_LINKS = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Safety", href: "/#safety" },
-  { label: "Community", href: "/#community" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Safety", href: "/safety" },
+  { label: "Community", href: "/community" },
   { label: "Company", href: "/about-company" },
-  { label: "FAQs", href: "/#faq" },
+  { label: "FAQs", href: "/faq" },
 ];
 
 const LEGAL_LINKS = [

@@ -5,6 +5,12 @@ const nextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  async rewrites() {
+    return [
+      { source: '/features', destination: '/' },
+      { source: '/safety', destination: '/' },
+      { source: '/faq', destination: '/' },
+    ];
+  },
 };
-
 module.exports = nextConfig;
