@@ -22,6 +22,7 @@ const TEAM = [
     copy: "Leads the vision for Exam Safexa and Safexa Technologies : building a safer exam journey for students and the families who worry about them. Started this because every year, millions of Indian students travel alone to life-changing exams with no trusted way to find someone to make that journey with.",
     quote: "Thank you for being here this early. Never travel alone for an exam.",
     linkedin: "https://www.linkedin.com/in/anisha-jaiswal-125870100/",
+    photo: "/brand/anisha-jaiswal.jpeg",
     head: true,
     initials: "AJ",
   },
@@ -37,7 +38,7 @@ const TEAM = [
   {
     name: "Satyam Kumar Kesarwani",
     role: "Core Team : Technology",
-    tag: "Engineering",
+    tag: "Developer",
     edu: "B.Tech in CSE, NIT Agartala",
     copy: "Leads engineering at Exam Safexa : backend, full-stack architecture, and the platform's matching engine, with hands-on experience shipping production platforms.",
     linkedin: "https://www.linkedin.com/in/satyam-kumar-kesarwani-763b61293/",
