@@ -23,6 +23,7 @@ const TEAM = [
     quote: "Thank you for being here this early. Never travel alone for an exam.",
     linkedin: "https://www.linkedin.com/in/anisha-jaiswal-125870100/",
     photo: "/brand/anisha-jaiswal.jpeg",
+    photoScale: "scale-[1.15]",
     head: true,
     initials: "AJ",
   },
@@ -34,7 +35,7 @@ const TEAM = [
     copy: "Leads R&D at Exam Safexa : researching government exams, universities, scholarships, and student needs to shape what we build next. Works on product planning, exam database design, and market validation.",
     linkedin: "https://www.linkedin.com/in/deepanshuyadav30",
     photo: "/brand/deepanshu-yadav.png",
-    photoPosition: "object-center",
+    photoPosition: "object-[center_35%]",
     initials: "DY",
   },
   {
@@ -42,10 +43,10 @@ const TEAM = [
     role: "Core Team : Technology",
     tag: "Developer",
     edu: "B.Tech in CSE, NIT Agartala",
-    copy: "Leads engineering at Exam Safexa : backend, full-stack architecture, and the platform's matching engine, with hands-on experience shipping production platforms.",
+    copy: "Leads engineering at Exam Safexa : building the backend infrastructure, full-stack architecture, and the core student matching engine. Brings hands-on experience shipping secure and scalable production platforms. Dedicated to ensuring a seamless and reliable technical experience for every user on our platform.",
     linkedin: "https://www.linkedin.com/in/satyam-kumar-kesarwani-763b61293/",
-    photo: "/brand/satyam-kesarwani.jpeg",
-    photoPosition: "object-center",
+    photo: "/brand/satyam-kesarwani.png",
+    photoPosition: "object-[center_20%]",
     initials: "SK",
   },
   {
@@ -209,13 +210,13 @@ export function Company() {
               }
             >
               {/* ── Photo / Avatar area ── */}
-              <div className="relative h-52 w-full bg-gradient-to-br from-teal-50 to-navy-50 shrink-0">
+              <div className="relative h-52 w-full bg-gradient-to-br from-teal-50 to-navy-50 shrink-0 overflow-hidden">
                 {member.photo ? (
                   <Image
                     src={member.photo}
                     alt={member.name}
                     fill
-                    className={`object-cover ${member.photoPosition ?? "object-top"}`}
+                    className={`object-cover ${member.photoPosition ?? "object-top"} ${member.photoScale ?? ""}`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   />
                 ) : (
