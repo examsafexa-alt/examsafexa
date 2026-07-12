@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram, Twitter, Linkedin, Send } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Send, MapPin } from "lucide-react";
 
 const QUICK_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -96,11 +96,25 @@ export function Footer() {
                 Support@examsafexa.com
               </a>
             </p>
+            <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-white/30">
+              Address
+            </p>
+            <div className="mt-1.5 flex items-start gap-2 text-sm text-white/50">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-400" />
+              <address className="not-italic leading-6">
+                Near Post Office Road, Ward No. 05<br />
+                West Champaran<br />
+                Bihar – 845449
+              </address>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} Safexa Technologies . All rights reserved.
+        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col items-center gap-1.5 text-center text-xs text-white/40">
+          <span>© {new Date().getFullYear()} Safexa Technologies. All rights reserved.</span>
+          <span className="flex items-center gap-1.5">
+            Made in India <span className="text-base leading-none">🇮🇳</span>
+          </span>
         </div>
       </div>
     </footer>

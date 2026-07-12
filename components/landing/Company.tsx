@@ -31,17 +31,29 @@ const TEAM = [
     tag: "R&D",
     edu: "MBA in Business Analytics, Kurukshetra University",
     copy: "Leads R&D at Exam Safexa : researching government exams, universities, scholarships, and student needs to shape what we build next. Works on product planning, exam database design, and market validation.",
-    linkedin: "www.google.com",
+    linkedin: "https://www.linkedin.com/in/deepanshuyadav30",
     initials: "DY",
   },
   {
     name: "Satyam Kumar Kesarwani",
     role: "Core Team : Technology",
     tag: "Engineering",
-    edu: "B.Tech in CSE, NIT Agartala ",
+    edu: "B.Tech in CSE, NIT Agartala",
     copy: "Leads engineering at Exam Safexa : backend, full-stack architecture, and the platform's matching engine, with hands-on experience shipping production platforms.",
     linkedin: "https://www.linkedin.com/in/satyam-kumar-kesarwani-763b61293/",
+    photo: "/brand/satyam-kesarwani.jpeg",
+    photoPosition: "object-center",
     initials: "SK",
+  },
+  {
+    name: "Nitin Jaiswal",
+    role: "Head of Operations & Customer Relations",
+    tag: "Operations",
+    edu: "MBA in Operations Management, Lovely Professional University (LPU)",
+    copy: "Leads operations and customer relations at Exam Safexa — overseeing day-to-day platform operations, student and parent support, and building the processes that keep the community running smoothly as we grow city by city.",
+    linkedin: "",
+    photo: "/brand/nitin-jaiswal.jpeg",
+    initials: "NJ",
   },
 ];
 
@@ -177,8 +189,8 @@ export function Company() {
           </p>
         </div>
 
-        {/* Team grid */}
-        <div className="mt-10 grid gap-5 lg:grid-cols-[1.4fr_1fr] lg:grid-rows-2">
+        {/* Team grid — equal-size cards, 2 cols on md, 4 cols on xl */}
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
 
           {TEAM.map((member, index) => (
             <motion.article
@@ -189,117 +201,86 @@ export function Company() {
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className={
                 member.head
-                  ? "flex flex-col rounded-2xl border border-teal-100 bg-white p-6 shadow-card lg:row-span-2"
-                  : "rounded-2xl border border-navy-900/8 bg-white shadow-card"
+                  ? "flex flex-col rounded-2xl border-2 border-teal-200 bg-white shadow-card overflow-hidden"
+                  : "flex flex-col rounded-2xl border border-navy-900/8 bg-white shadow-card overflow-hidden"
               }
             >
-              {member.head ? (
-                /* ── Founder card (tall, vertical) ── */
-                <>
-                  {/* Avatar */}
-                  <div className="grid h-40 place-items-center rounded-xl bg-gradient-to-br from-teal-50 to-navy-50">
+              {/* ── Photo / Avatar area ── */}
+              <div className="relative h-52 w-full bg-gradient-to-br from-teal-50 to-navy-50 shrink-0">
+                {member.photo ? (
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    className={`object-cover ${member.photoPosition ?? "object-top"}`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center">
                     <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-2xl font-bold text-teal-700 shadow-sm ring-4 ring-teal-100">
                       {member.initials}
                     </div>
                   </div>
+                )}
+                {/* Founder badge overlay */}
+                {member.head && (
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-teal-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow">
+                    ★ Founder
+                  </span>
+                )}
+              </div>
 
-                  {/* Info */}
-                  <div className="mt-5 flex flex-1 flex-col">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-display text-2xl font-semibold text-navy-900">
-                          {member.name}
-                        </h3>
-                        <p className="mt-1 text-sm font-semibold text-teal-700">
-                          {member.role}
-                        </p>
-                      </div>
-                      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-teal-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-teal-700">
-                        <GraduationCap className="h-3.5 w-3.5" />
-                        {member.tag}
-                      </span>
-                    </div>
-
-                    <p className="mt-4 text-sm leading-7 text-navy-700/72">
-                      {member.copy}
+              {/* ── Card body ── */}
+              <div className="flex flex-1 flex-col p-5">
+                {/* Name + tag */}
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h3 className="font-display text-base font-semibold text-navy-900 leading-snug">
+                      {member.name}
+                    </h3>
+                    <p className="mt-0.5 text-xs font-semibold text-teal-700">
+                      {member.role}
                     </p>
-
-                    {/* Education */}
-                    <div className="mt-4 flex items-start gap-2 rounded-xl border border-navy-900/8 bg-navy-50 px-4 py-3">
-                      <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />
-                      <p className="text-sm font-semibold text-navy-900">{member.edu}</p>
-                    </div>
-
-                    {/* Quote */}
-                    <blockquote className="mt-4 border-l-2 border-teal-400 pl-4">
-                      <p className="text-sm italic text-navy-700/65">
-                        &ldquo;{member.quote}&rdquo;
-                      </p>
-                    </blockquote>
-
-                    {/* LinkedIn */}
-                    <div className="mt-auto pt-5">
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-navy-900/10 bg-navy-50 px-4 py-2 text-sm font-semibold text-navy-700 transition hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
-                      >
-                        <Linkedin className="h-4 w-4" />
-                        LinkedIn
-                      </a>
-                    </div>
                   </div>
-                </>
-              ) : (
-                /* ── Core team card (compact horizontal) ── */
-                <div className="flex gap-5 p-5">
-                  {/* Avatar */}
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-50 to-navy-50 text-base font-bold text-teal-700 shadow-sm">
-                    {member.initials}
-                  </div>
-
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div>
-                        <h3 className="font-display text-lg font-semibold text-navy-900">
-                          {member.name}
-                        </h3>
-                        <p className="mt-0.5 text-xs font-semibold text-teal-700">
-                          {member.role}
-                        </p>
-                      </div>
-                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-teal-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-teal-700">
-                        <GraduationCap className="h-3 w-3" />
-                        {member.tag}
-                      </span>
-                    </div>
-
-                    <p className="mt-2.5 text-sm leading-6 text-navy-700/70">
-                      {member.copy}
-                    </p>
-
-                    {/* Education */}
-                    <div className="mt-3 flex items-center gap-2 rounded-lg border border-navy-900/8 bg-navy-50 px-3 py-2">
-                      <GraduationCap className="h-3.5 w-3.5 shrink-0 text-teal-600" />
-                      <p className="text-xs font-semibold text-navy-900">{member.edu}</p>
-                    </div>
-
-                    {/* LinkedIn */}
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-navy-900/10 bg-navy-50 px-3 py-1.5 text-xs font-semibold text-navy-700 transition hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
-                      >
-                        <Linkedin className="h-3.5 w-3.5" />
-                        LinkedIn
-                      </a>
-                    )}
-                  </div>
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-teal-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-teal-700">
+                    <GraduationCap className="h-2.5 w-2.5" />
+                    {member.tag}
+                  </span>
                 </div>
-              )}
+
+                {/* Bio */}
+                <p className="mt-3 text-xs leading-5 text-navy-700/70 flex-1">
+                  {member.copy}
+                </p>
+
+                {/* Quote (founder only) */}
+                {member.quote && (
+                  <blockquote className="mt-3 border-l-2 border-teal-400 pl-3">
+                    <p className="text-xs italic text-navy-700/60">
+                      &ldquo;{member.quote}&rdquo;
+                    </p>
+                  </blockquote>
+                )}
+
+                {/* Education */}
+                <div className="mt-3 flex items-start gap-1.5 rounded-lg border border-navy-900/8 bg-navy-50 px-3 py-2">
+                  <GraduationCap className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal-600" />
+                  <p className="text-[11px] font-semibold text-navy-900 leading-4">{member.edu}</p>
+                </div>
+
+                {/* LinkedIn */}
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-navy-900/10 bg-navy-50 px-3 py-1.5 text-xs font-semibold text-navy-700 transition hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
+                  >
+                    <Linkedin className="h-3.5 w-3.5" />
+                    LinkedIn
+                  </a>
+                )}
+              </div>
             </motion.article>
           ))}
         </div>

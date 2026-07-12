@@ -54,6 +54,16 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
+      {/* ── Maintenance announcement banner ── */}
+      <div className="w-full bg-gray-600 text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-5 py-2 text-center text-xs font-semibold sm:text-sm">
+          <span className="text-base"></span>
+          <span>
+            This site is currently <span className="underline underline-offset-2">under maintenance</span> : it will become fully functional in a few days. Thank you for your patience!
+          </span>
+        </div>
+      </div>
+
       {/* Thin gradient accent bar */}
       <div className="h-1 w-full bg-brand-gradient" />
       <div
