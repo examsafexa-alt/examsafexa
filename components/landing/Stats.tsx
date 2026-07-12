@@ -78,7 +78,7 @@ export function Stats() {
             A growing community, city by city
           </h2>
           <p className="mt-4 text-navy-700/70">
-            Illustrative figures shown below — updated live once centers go
+            Illustrative figures shown below updated live once centers go
             active each exam season.
           </p>
 

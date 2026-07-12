@@ -82,7 +82,7 @@ export function Testimonials() {
               </blockquote>
               <figcaption className="mt-4 text-sm">
                 <span className="font-semibold text-navy-900">{t.name}</span>
-                <span className="text-navy-700/60"> — {t.detail}</span>
+                <span className="text-navy-700/60"> {t.detail}</span>
               </figcaption>
             </motion.figure>
           ))}

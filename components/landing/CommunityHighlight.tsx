@@ -27,14 +27,14 @@ export function CommunityHighlight() {
           </h2>
           <p className="mt-4 max-w-lg text-navy-700/70">
             The moment you select your exam and center, ExamSafexa auto-matches
-            you with every other student headed to the same place — so you can
+            you with every other student headed to the same place so you can
             plan travel together, swap centre tips, and walk in a little less
             nervous.
           </p>
 
           <ul className="mt-8 space-y-4">
             {[
-              "Matched automatically by exam + exact center — no searching.",
+              "Matched automatically by exam + exact center no searching.",
               "Coordinate a shared auto, train, or meetup point if you'd like.",
               "Ask questions about parking, entry gates, and timing from people who'll be there too.",
             ].map((item) => (

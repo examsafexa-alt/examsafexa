@@ -54,7 +54,7 @@ const TEAM = [
     role: "Head of Operations & Customer Relations",
     tag: "Operations",
     edu: "MBA in Operations Management, Lovely Professional University (LPU)",
-    copy: "Managing operations and customer relations at Exam Safexa — overseeing day-to-day platform operations, student and parent support, and building the processes that keep the community running smoothly as we grow city by city.",
+    copy: "Managing operations and customer relations at Exam Safexa overseeing day-to-day platform operations, student and parent support, and building the processes that keep the community running smoothly as we grow city by city.",
     linkedin: "",
     photo: "/brand/nitin-jaiswal.jpeg",
     initials: "NJ",

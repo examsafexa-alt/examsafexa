@@ -15,13 +15,13 @@ import {
 const FEATURES = [
   {
     icon: MapPinned,
-    title: "Live location — your choice, your timing",
+    title: "Live location your choice, your timing",
     copy: "Turn it on only for the journey to your center. Nothing is ever tracked by default. One tap on, one tap off.",
   },
   {
     icon: Eye,
     title: "Only your guardian sees it",
-    copy: "Add one trusted email at signup. If you opt in, they — and only they — can see where you are in real time.",
+    copy: "Add one trusted email at signup. If you opt in, they and only they can see where you are in real time.",
   },
   {
     icon: UsersRound,
@@ -31,12 +31,12 @@ const FEATURES = [
   {
     icon: BadgeCheck,
     title: "Verified-student identity",
-    copy: "Every person in your center community is a real student — so you know exactly who you're coordinating with.",
+    copy: "Every person in your center community is a real student so you know exactly who you're coordinating with.",
   },
 ];
 
 const REASSURANCES = [
-  { icon: Lock, text: "Zero tracking by default — opt-in only" },
+  { icon: Lock, text: "Zero tracking by default opt-in only" },
   { icon: EyeOff, text: "Guardian link expires after your exam" },
   { icon: HeartHandshake, text: "Built with women solo travelers in mind" },
 ];
