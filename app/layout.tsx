@@ -20,12 +20,12 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "ExamSafexa — Never Travel Alone for an Exam",
+  title: "ExamSafexa : Never Travel Alone for an Exam",
   description:
     "Find your exam center, connect with your exam-day community, and stay safe on the way — an independent student companion platform for NEET, JEE, UPSC, SSC and more.",
   metadataBase: new URL("https://examsafexa.example.com"),
   openGraph: {
-    title: "ExamSafexa — Never Travel Alone for an Exam",
+    title: "ExamSafexa : Never Travel Alone for an Exam",
     description:
       "Find your exam center, connect with your exam-day community, and stay safe on the way.",
     url: "https://examsafexa.example.com",

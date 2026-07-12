@@ -90,7 +90,7 @@ export function Hero() {
           className="mt-6 max-w-xl text-base text-white/75 sm:text-lg"
         >
           Find your exam center, see the route before exam day, and get matched
-          with other students headed to the same place — with an optional
+          with other students headed to the same place - with an optional
           safety layer for solo travelers.
         </motion.p>
 

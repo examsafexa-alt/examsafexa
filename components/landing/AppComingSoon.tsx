@@ -48,7 +48,7 @@ export function AppComingSoon() {
           ExamSafexa is coming to your pocket
         </h2>
         <p className="mt-4 text-navy-700/70">
-          Everything you love on the web — routes, community, safety alerts —
+          Everything you love on the web routes, community, safety alerts 
           arriving on iOS &amp; Android soon. Be first to know.
         </p>
       </div>

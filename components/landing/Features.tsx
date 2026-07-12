@@ -41,7 +41,7 @@ const UPCOMING_FEATURES = [
   {
     icon: BadgeCheck,
     title: "Admit-card verification",
-    copy: "A stronger verified badge — confirming group members are genuine exam-goers, not just self-declared.",
+    copy: "A stronger verified badge confirming group members are genuine exam-goers, not just self-declared.",
   },
   {
     icon: Smartphone,
@@ -51,7 +51,7 @@ const UPCOMING_FEATURES = [
   {
     icon: Siren,
     title: "Emergency SOS",
-    copy: "One-tap alert to a saved emergency contact with live location — for solo travelers.",
+    copy: "One-tap alert to a saved emergency contact with live location for solo travelers.",
   },
   {
     icon: Building2,
@@ -90,7 +90,7 @@ export function Features() {
           Everything you need, exam day and beyond
         </h2>
         <p className="mt-4 text-navy-700/70">
-          Some features are live today. The rest are in the pipeline — every
+          Some features are live today. The rest are in the pipeline every
           one built around keeping students safe, connected, and stress-free.
         </p>
       </div>

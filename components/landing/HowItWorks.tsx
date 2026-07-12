@@ -22,7 +22,7 @@ const STEPS = [
   {
     icon: Users2,
     title: "Join Your Community",
-    copy: "You're auto-matched with every other student at your exam and center — coordinate travel, share tips, calm the nerves.",
+    copy: "You're auto-matched with every other student at your exam and center coordinate travel, share tips, calm the nerves.",
   },
 ];
 
