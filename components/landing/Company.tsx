@@ -33,6 +33,8 @@ const TEAM = [
     edu: "MBA in Business Analytics, Kurukshetra University",
     copy: "Leads R&D at Exam Safexa : researching government exams, universities, scholarships, and student needs to shape what we build next. Works on product planning, exam database design, and market validation.",
     linkedin: "https://www.linkedin.com/in/deepanshuyadav30",
+    photo: "/brand/deepanshu-yadav.png",
+    photoPosition: "object-center",
     initials: "DY",
   },
   {
